@@ -1,0 +1,23 @@
+[
+    {
+        "nombre": "Leche Conaprole",
+        "precio": "$30",
+        "identificador": "01"
+    },
+    {
+        "nombre": "Zapatos Adidas",
+        "precio": "$300" ,
+        "identificador": "0102"
+    },
+    {
+        "nombre": "Zapatos Adidas",
+        "precio": "$300" ,
+        "identificador": "0103"
+    },
+    {
+     "nombre": "Zapatos Adidas",
+        "precio": "$300" ,
+        "identificador": "0104"
+    }
+    
+    ]
