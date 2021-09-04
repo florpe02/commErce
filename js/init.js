@@ -40,8 +40,28 @@ var getJSONData = function(url){
     });
 }
 
+var login_data
+
+function recuperarr() {
+  if (localStorage.getItem("login_data")) {
+
+    
+      login_data_json = localStorage.getItem("login_data");
+
+    
+      login_data= JSON.parse(login_data_json);
+  }
+   
+      document.getElementById ("emailaddrr").innerHTML=
+       "usuario: " + login_data.login_datos + "<br>"
+
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  
+  document.getElementById ("emailaddrr")
+recuperarr()
+
 });
