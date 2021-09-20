@@ -139,3 +139,52 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/* NUEVAS CLASES, ID, ETC.
+*/
+/* fORMULARIO
+*/
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 100px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+/* ESTRELLITAS
+*/
+label {
+  color: blueviolet;
+}
+
+.classs {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+/* Esto sirve para cuando se pasa el mouse por la parte de las estrellitas
+*/
+label:hover,
+label:hover ~ label {
+  color: violet;
+}
+
+input[type="radio"]:checked ~ label {
+  color: fuchsia
+}
+/* Esto para que en todas las negritas estén de un color más lindo
+*/
+b{
+  color: palevioletred;
+}

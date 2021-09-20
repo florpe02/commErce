@@ -64,7 +64,6 @@ function showCategoriesList(){
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
-    showCategoriesList();
 }
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         minCount = undefined;
         maxCount = undefined;
 
-        showCategoriesList();
+       
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
