@@ -53,7 +53,7 @@ function recuperarr() {
   }
    
       document.getElementById ("emailaddrr").innerHTML=
-       "usuario: " + login_data.login_datos + "<br>"
+       "usuario: " + login_data.login_datos  +  "▼"+"<br>"
 
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de

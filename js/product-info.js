@@ -19,6 +19,22 @@ function showImagesGallery(array)
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
+//función para mostrar los productos relacionados con el array que teníamos que utilizar.
+function mostrarRelacionados(array){
+    let relacionados = "";
+     product.relatedProducts.forEach((relacionado) => {
+         relacionados +=`
+         <div class="col-lg-3 col-md-4 col-6">
+             <div class="d-block mb-4 h-100">
+                 <img id="img" class="img-fluid img-thumbnail" src="` + array[relacionado].imgSrc+`" alt="">
+                 
+             </div>
+         </div>`
+ });
+ document.getElementById("relacionados").innerHTML = relacionados;
+ }
+ 
+ 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -46,7 +62,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             showImagesGallery(product.images);
         }
     });
-
+// se llama al json y se llama la función hecha anteriormente
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            relacionados = resultObj.data;
+            mostrarRelacionados(relacionados);
+        }
+    });
 
 
 // Se hace fetch para llamar el json de los comentarios
