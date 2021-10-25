@@ -36,21 +36,36 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="portada.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="dropdown">
+        <a class="py-2 d-none d-md-inline-block" href=" " role="button" id="emailaddrr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </a>
+       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href=" ">Mi perfil</a>
+          <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <a class="py-2 d-none d-md-inline-block"  href=""id="emailaddrr"></a>
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    <table>
+      <thead>
+  <p>carrito</p>
+      </thead>
+      <tbody>
+ <p id="carrito"></p> <style left: 50;></style>
+      </tbody>
+    </table>       
+  <div class="row text-center text-lg-left pt-2" id="mostrarimagen">
   </div>
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -59,6 +74,7 @@
       <div></div>
     </div>
   </div>
+  
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
