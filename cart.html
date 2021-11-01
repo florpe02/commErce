@@ -45,7 +45,7 @@
         </a>
        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item" href=" ">Mi perfil</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" href="index.html">Cerrar sesión</a>
         </div>
       </div>
@@ -66,6 +66,76 @@
   <div class="row text-center text-lg-left pt-2" id="mostrarimagen">
   </div>
 
+           
+                          
+
+                    
+                     
+              
+
+
+            <h5>Método de envío</h5>
+            <br>
+            <form action>
+              <label for="tipo">Tipo de envío: </label>
+              <select name="tipoenvio" id="tipodeenvio" class="mb-3" required>
+                <option value="premiun">Premiun (2-5 días), el precio será de un 15% sobre el subtotal</option>
+                <option value="express">Express (5-8 días), el precio será de un 7% sobre el subtotal</option>
+                <option value="standard">Standard (12-15 días), el precio será de un 5% sobre el subtotal</option>
+              
+
+              </select>
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+              <div class="invalid-feedback">Rellena el campo "Nombre".</div>
+              <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+              <div class="invalid-feedback">Rellena el campo "Apellido".</div>
+
+              <h5 class="mb-3 text-center">Dirección:</h5>
+              <input type="text" class="form-control" id="calle" placeholder="Calle" required>
+              <div class="invalid-feedback">Rellena el campo "Calle".</div>
+
+              <input type="text" class="form-control" id="numero" placeholder="Número" required>
+              <div class="invalid-feedback">Rellena el campo "Número".</div>
+
+              <input type="text" class="form-control" id="esquina" placeholder="Esquina" required><br>
+              <div class="invalid-feedback">Rellena el campo "Esquina".</div>
+
+              <label for="paises">País:</label>
+              <select name="paises" id="country" class="mb-3" required>
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Uruguay">Uruguay</option>
+              
+
+              </select>
+              <br><br>
+
+              <h5>Forma de pago</h5>
+              <br>
+              <form action>
+                <label for="forma">Forma de pago </label>
+                <select name="formadepago" id="formapago" class="mb-3" required>
+                  <option value="transf">Transferencia Bancaria</option>
+                  <option value="tarjeta">Tarjeta de crédito</option>
+                 
+                
+  
+                </select>
+<br>
+                <button type="button" class="btn btn-primary" data-toggle="modal"
+                data-target=".bd-example-modal-lg">Confirmar pedido</button>
+
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                No olvide de revisar que sus datos sean correctos.
+                    <input type="submit" class="btn btn-primary" value="Confirmar pedido">
+                  </div>
+                </div>
+              </div>
+            </form>
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
