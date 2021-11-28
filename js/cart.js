@@ -3,37 +3,62 @@ document.addEventListener("DOMContentLoaded", function(e){
       if (resultObj.status === "ok"){
           cart = resultObj.data;
           infoCarrito(cart);
+          calculo();
+          
       }
 }).catch((error) => alert("Hubo un error: " + error));
 });
 
-var cart={};
+var cart=[];
+var enviovalue= 1.15;
 
-function mostrarimagen (array){
-
-    let htmlContentToAppend = ""
-    for(let i = 0; i < array.length; i++){
-        let src = array[i];
-    
-        htmlContentToAppend += `
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="` + article.src + `" alt="">
-                </div>
-            </div>
-        `
-    
-            document.getElementById("src").innerHTML = htmlContentToAppend;
-        }
-    }
-
-function calcularsub(){
+/* function calcularsub(){
     let val= document.getElementById("valor").innerHTML;
-    let cant= document.getElementById("calsub").value;
+    let cant= document.getElementsById("calsub").value;
     let subtotal= document.getElementById("sub");
     let valor=  val*cant;
     subtotal.innerHTML= valor;
+}*/
+
+function calculo(){
+    let valorPrecio = document.getElementsByClassName("valor2");
+    let count = document.getElementsByClassName("calsub");
+    let subtotal = 0;
+    let precio = 0;
+   
+
+    for (let i = 0; i < valorPrecio.length; i++){
+// pasar moneda para el desafío, 12500 por 40 es 500 000
+        if (cart.articles[i].currency == "USD") {
+        precio = 40 * (parseFloat(valorPrecio[i].innerHTML) * parseFloat(count[i].value)) ;
+        } else {
+            precio = parseFloat(valorPrecio[i].innerHTML) * parseFloat(count[i].value); 
+        }
+
+        subtotal += precio;
+      
+    }
+
+    document.getElementById("sub").innerHTML = subtotal;
+    document.getElementById("total").innerHTML = Math.round(subtotal*enviovalue);
+
 }
+ function envios (){
+        let valor = document.getElementById("tipodeenvio").value;
+    
+        if (valor == "premiun") {
+            enviovalue = 1.15;
+            calculo();
+        } else if (valor == "express") {
+            enviovalue = 1.07;
+            calculo();
+        } else if (valor == "standard") {
+            enviovalue = 1.05;
+            calculo();
+        }
+    
+    
+ }
  
 
 function infoCarrito(cart){
@@ -55,11 +80,11 @@ function infoCarrito(cart){
 
         <div class="col-sm-4 col-md-3 border" style="background-color: white;">
         <p> <br><br><br>Cantidad: </p> 
-        <input type="number"  value="`+article.count+ `" onchange="calcularsub()" id="calsub">   
+        <input type="number"  value="`+article.count+ `" onchange="calculo()" class="calsub">   
         </div>
 
         <div class="col-sm-4 col-md-2 border" style="background-color: white;">
-            <p> <br><br><br>Precio:<span id="valor">`+article.unitCost+`</span>`+article.currency+`</p>
+            <p> <br><br><br>Precio:<span id="valor" class="valor2">`+article.unitCost+`</span>`+article.currency+`</p>
         </div>
     
         <div class="col-sm-4 col-md-3 border" style="background-color: white;">
@@ -67,20 +92,11 @@ function infoCarrito(cart){
         </div>
     </div> 
 </div>
+` }
 
-<br><br><br>
-
-<div class="container text-center">
-    <div class="col-sm-2 col-md-2 border" style="background-color: white;">
-        <p>Subtotal:<span id="sub"> </span></p>
-        <p id="total">    </p> Total:
-        
-    </div>
-    </div>
-</div>
-`
 
     
-  }
+  
   document.getElementById("carrito").innerHTML = htmlContentToAppend;
+ // calculo()
 }

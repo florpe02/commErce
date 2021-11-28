@@ -41,116 +41,137 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <a class="py-2 d-none d-md-inline-block" href=" " role="button" id="emailaddrr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="py-2 d-none d-md-inline-block" href=" " role="button" id="emailaddrr" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </a>
-       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" href="index.html">Cerrar sesión</a>
         </div>
       </div>
 
-      <a class="py-2 d-none d-md-inline-block"  href=""id="emailaddrr"></a>
+      <a class="py-2 d-none d-md-inline-block" href="" id="emailaddrr"></a>
     </div>
   </nav>
- 
-   
-    <main role="main" class="pb-5">
-      <div class="text-center p-4">
-          <h2> Mi carrito </h2>
+
+
+  <main role="main" class="pb-5">
+    <div class="text-center p-4">
+      <h2> Mi carrito </h2>
+    </div>
+    </div>
+
+    <p id="carrito"></p>
+    </style>
+
+    <div class="row text-center text-lg-left pt-2" id="mostrarimagen">
+    </div>
+
+
+
+    <br><br><br>
+
+    <div class="container text-center">
+        <div class="col-sm-2 col-md-2 border" style="background-color: white;">
+            <p>Subtotal: <br><span id="sub"> </span></p> 
+      Total:      <p id="total"> Total:  </p> 
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <h5>Método de envío</h5>
+    <br>
+    <form action>
+      <label for="tipo">Tipo de envío: </label>
+      <select onchange="envios()" name="tipoenvio" id="tipodeenvio" class="mb-3" required>
+        <option value="premiun">Premiun (2-5 días), el precio será de un 15% sobre el subtotal</option>
+        <option value="express">Express (5-8 días), el precio será de un 7% sobre el subtotal</option>
+        <option value="standard">Standard (12-15 días), el precio será de un 5% sobre el subtotal</option>
+
+
+      </select>
+      <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+      <div class="invalid-feedback">Rellena el campo "Nombre".</div>
+      <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+      <div class="invalid-feedback">Rellena el campo "Apellido".</div>
+
+      <h5 class="mb-3 text-center">Dirección:</h5>
+      <input type="text" class="form-control" id="calle" placeholder="Calle" required>
+      <div class="invalid-feedback">Rellena el campo "Calle".</div>
+
+      <input type="text" class="form-control" id="numero" placeholder="Número" required>
+      <div class="invalid-feedback">Rellena el campo "Número".</div>
+
+      <input type="text" class="form-control" id="esquina" placeholder="Esquina" required><br>
+      <div class="invalid-feedback">Rellena el campo "Esquina".</div>
+
+      <label for="paises">País:</label>
+      <select name="paises" id="country" class="mb-3" required>
+        <option value="Argentina">Argentina</option>
+        <option value="Brasil">Brasil</option>
+        <option value="Paraguay">Paraguay</option>
+        <option value="Uruguay">Uruguay</option>
+
+
+      </select>
+      <br><br>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formadepago">Método de
+        pago</button>
+
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="formadepago">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <br>
+          
+              <label for="forma">Forma de pago </label>
+              <select name="formadepago" id="formapago" class="mb-3" required>
+                <option value="transf">Transferencia Bancaria</option>
+                <option value="tarjeta">Tarjeta de crédito</option>
+              </select>
+              <input type="number" class="form-control" id="número" placeholder="Número de tarjeta" required>
+              <div class="invalid-feedback">Rellena el campo "Número de tarjeta" .</div>
+              <br>
+              <input type="number" class="form-control" id="numero" placeholder="Código de seguridad" required>
+              <div class="invalid-feedback">Rellena el campo "Código de Seguridad".</div>
+              <br>
+              <input type="date" class="form-control" id="fecha" placeholder="Fecha de vencimiento" required>
+              <div class="invalid-feedback">Rellena el campo "Fecha de vencimiento".</div>
+        
+            
+            </form>
+            <input type="submit" class="btn btn-primary" value="Realizar compra">
           </div>
         </div>
+      </div>
+
+
+
+
+      <br>
      
- <p id="carrito"></p> </style>
-      
-  <div class="row text-center text-lg-left pt-2" id="mostrarimagen">
-  </div>
 
-           
-                          
+      <div id="spinner-wrapper">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
 
-                    
-                     
-              
-
-
-            <h5>Método de envío</h5>
-            <br>
-            <form action>
-              <label for="tipo">Tipo de envío: </label>
-              <select name="tipoenvio" id="tipodeenvio" class="mb-3" required>
-                <option value="premiun">Premiun (2-5 días), el precio será de un 15% sobre el subtotal</option>
-                <option value="express">Express (5-8 días), el precio será de un 7% sobre el subtotal</option>
-                <option value="standard">Standard (12-15 días), el precio será de un 5% sobre el subtotal</option>
-              
-
-              </select>
-              <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
-              <div class="invalid-feedback">Rellena el campo "Nombre".</div>
-              <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
-              <div class="invalid-feedback">Rellena el campo "Apellido".</div>
-
-              <h5 class="mb-3 text-center">Dirección:</h5>
-              <input type="text" class="form-control" id="calle" placeholder="Calle" required>
-              <div class="invalid-feedback">Rellena el campo "Calle".</div>
-
-              <input type="text" class="form-control" id="numero" placeholder="Número" required>
-              <div class="invalid-feedback">Rellena el campo "Número".</div>
-
-              <input type="text" class="form-control" id="esquina" placeholder="Esquina" required><br>
-              <div class="invalid-feedback">Rellena el campo "Esquina".</div>
-
-              <label for="paises">País:</label>
-              <select name="paises" id="country" class="mb-3" required>
-                <option value="Argentina">Argentina</option>
-                <option value="Brasil">Brasil</option>
-                <option value="Paraguay">Paraguay</option>
-                <option value="Uruguay">Uruguay</option>
-              
-
-              </select>
-              <br><br>
-
-              <h5>Forma de pago</h5>
-              <br>
-              <form action>
-                <label for="forma">Forma de pago </label>
-                <select name="formadepago" id="formapago" class="mb-3" required>
-                  <option value="transf">Transferencia Bancaria</option>
-                  <option value="tarjeta">Tarjeta de crédito</option>
-                 
-                
-  
-                </select>
-<br>
-                <button type="button" class="btn btn-primary" data-toggle="modal"
-                data-target=".bd-example-modal-lg">Confirmar pedido</button>
-
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                No olvide de revisar que sus datos sean correctos.
-                    <input type="submit" class="btn btn-primary" value="Confirmar pedido">
-                  </div>
-                </div>
-              </div>
-            </form>
-
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+      <script src="js/jquery-3.4.1.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/dropzone.js"></script>
+      <script src="js/init.js"></script>
+      <script src="js/cart.js"></script>
 </body>
 
 </html>
